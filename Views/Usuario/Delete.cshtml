@@ -1,0 +1,13 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Usuario
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="text-center">ELIMINAR @Model.Nombre</h2>
+<div class="text-center">
+    <h2>¿Está seguro que desea eliminar el usuario? <b>@Model.Nombre</b>, Borraras todos los Prestamos relacionados?</h2>
+    <form method="post">
+        <a href="/Usuario/Index" class="btn btn-primary">VOLVER</a>
+        <button class="btn btn-danger">ELIMINAR</button>
+    </form>
+</div>

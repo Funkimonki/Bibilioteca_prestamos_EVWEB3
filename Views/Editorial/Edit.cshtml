@@ -1,0 +1,19 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Editorial
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1 class="text-center">Editar Editorial</h1>
+<form method="post" class="needs-validation" novalidate>
+    <input type="hidden" name="id_editorial" value="@Model.id_editorial" />
+    <div class="mb-3">
+
+        <label class="form-label">Nombre de Autor</label>
+        <input type="text" id="nombre" name="nombre" value="@Model.Nombre" class="form-control" required />
+    </div>
+    <div>
+        <a href="/Editorial/Index" class="btn btn-primary">VOLVER</a>
+        <button type="submit" class="btn btn-success">EDITAR</button>
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>

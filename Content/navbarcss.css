@@ -1,0 +1,26 @@
+﻿.dropdown-item {
+    border-left: solid 7px blue;
+    padding-block: 10px 5px;
+    margin-top: 0.1px;
+    margin-bottom: 0.5px;
+    background: conic-gradient(to right, red, blue);
+}
+
+
+.dropdown-toggle:hover {
+    transition: ease 0.4s;
+    text-shadow: 0px 3px 8px black;
+    border-left: 1px solid #0000ff99;
+}
+
+.dropdown-item:hover {
+    transition-delay: 0.1s;
+    transition: background-color ease-in 0.5s;
+    background-color: aqua;
+    border-left: solid 7px black;
+    color: black;
+}
+
+.form-label {
+    padding: 10px 10px;
+}

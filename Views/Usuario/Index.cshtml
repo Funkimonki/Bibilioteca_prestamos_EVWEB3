@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Bibilioteca_prestamos_EVWEB.Models.Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+<h2 class="text-center">Lista de Usuarios</h2>
+<div class="mb-2 text-end">
+    <a href="/Usuario/Create/" class="btn btn-primary">Crear Usuario</a>
+</div>
+<div class="tex-center">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+
+                <th>Tipo Usuario</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.id_Usuario</td>
+
+                <td>@item.Rut</td>
+                <td>@item.Nombre</td>
+                <td>@item.Telefono</td>
+                <td>@item.Direccion</td>
+                <td>@item.TipoUsuario.Nombre</td>
+                <td>@item.email</td>
+
+                <td>
+                    <a href="/Usuario/Edit/@item.id_Usuario" class="btn btn-warning">Editar</a>
+                    <a href="/Usuario/Delete/@item.id_Usuario" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

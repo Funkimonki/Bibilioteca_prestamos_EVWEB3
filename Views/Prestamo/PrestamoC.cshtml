@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Prestamo";
+}
+
+
+<h2 class="text-center mt--5">Crear Prestamo</h2>
+<div class="row mt-5">
+
+    <div class="row mb-3">
+
+        <div class="col-3">
+
+            <label class="form-label">Fecha del Préstamo</label>
+            <input type="date" name="FechaPres" class="form-control" required />
+            <div class="text-danger">@ViewBag.Error1</div>
+        </div>
+
+        <div class="col-3">
+            <label for="Fecha">Fecha de devolución</label>
+            <input type="date" name="FechaDev" class="form-control" required />
+            <div class="text-danger">@ViewBag.Error</div>
+        </div>
+    
+
+
+        <div class="col-3">
+            <label class="form-label">Usuario</label>
+            @Html.DropDownList("id_Usuario", null, "--Seleccione--",
+           htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-3">
+            <label class="form-label">Libro</label>
+            @Html.DropDownList("id_Libro", null, "--Seleccione--",
+           htmlAttributes: new { @class = "form-control" })
+        </div>
+
+
+    </div>
+    <hr />
+    <div>
+        <input type="button" value="GUARDAR PEDIDO" class="btn btn-success" onclick="guardar()" />
+    </div>
+</div>
+
+

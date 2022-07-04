@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="text-center">Crear Nuevo Libro</h2>
+
+<form method="post" class="needs-validation" novalidate>
+
+    <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text" name="Titulo" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ISBN</label>
+        <input type="text" name="ISBN" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Editorial</label>
+        @Html.DropDownList("id_Editorial", null, "--Seleccione--",
+       htmlAttributes: new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Autor</label>
+        @Html.DropDownList("id_Autor", null, "--Seleccione--",
+       htmlAttributes: new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Archivo</label>
+        <input type="file" name="archivo" class="form-control" accept="image/jpg,image/jpeg,image/png" />
+    </div>
+
+    <div class="mb-3 text-end">
+        <a href="/Libro/Index" class="btn btn-outline-primary">VOLVER</a>
+        <input type="submit" value="GUARDAR" class="btn btn-success" />
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>
+

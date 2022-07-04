@@ -1,0 +1,29 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Ejemplar
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="text-center">Editar Ejemplar</h2>
+
+<form method="post" class="needs-validation" novalidate>
+
+    <input type="hidden" name="id_Ejemplar" value="@Model.id_Ejemplar" />
+    <div class="mb-3">
+        <label class="form-label">Localización</label>
+        <input type="text" name="Localizacion" value="@Model.Localizacion" class="form-control" required />
+       
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Libro</label>
+        @Html.DropDownList("id_libro", null, "Seleccione",
+       htmlAttributes: new { @class = "form-control", @required = true })
+    </div>
+
+    <div class="mb-3 text-end">
+        <a href="/Ejemplar/Index" class="btn btn-outline-primary">VOLVER</a>
+        <input type="submit" value="GUARDAR" class="btn btn-success" />
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>
+<script src="~/Scripts/validacion rut.js"></script>

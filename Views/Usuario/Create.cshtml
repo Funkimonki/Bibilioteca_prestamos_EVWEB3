@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="text-center">Crear Usuario</h2>
+
+<form method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label class="form-label">Rut</label>
+        <input type="text" id="txt_rut" name="Rut" class="form-control" required oninput="checkRut(this)"  />
+        <p class="text-info" id="msgerror"></p>
+        <div class="text-danger">@ViewBag.Error</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="Nombre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="number" name="Telefono" class="form-control" required autocomplete="off" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Dirección</label>
+        <input type="text" name="Direccion" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tipo Usuario</label>
+        @Html.DropDownList("id_tipo", null, "--Seleccione--",
+       htmlAttributes: new { @class = "form-control" })
+     
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required autocomplete="off" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" name="pass" class="form-control" required autocomplete="off" />
+    </div>
+
+    <div class="mb-3 text-end">
+        <a href="/Usuario/Index" class="btn btn-outline-primary">VOLVER</a>
+        <input type="submit" value="GUARDAR" class="btn btn-success" />
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>
+<script src="~/Scripts/validacion rut.js"></script>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Bibilioteca_prestamos_EVWEB.Models.Ejemplar>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h1 class="text-center">Lista de Ejemplares</h1>
+@if (int.Parse(Session["tipo"].ToString()) == 1)
+{
+    <div class="mb-2 text-end">
+        <a href="/Ejemplar/Create/" class="btn btn-primary">Crear Nuevo Ejemplar</a>
+    </div>
+}
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Localización</th>
+                    <th>Libro</th>
+                    @if (int.Parse(Session["tipo"].ToString()) == 1)
+                    {
+                        <th></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.id_Ejemplar</td>
+                    <td>@item.Localizacion</td>
+                    <td>@item.Libro.Titulo</td>
+                    @if (int.Parse(Session["tipo"].ToString()) == 1)
+                    {
+                        <td>
+                            <a href="/Ejemplar/Edit/@item.id_Ejemplar" class="btn btn-warning">EDITAR</a>
+                            <a href="/Ejemplar/Delete/@item.id_Ejemplar" class="btn btn-danger">ELIMINAR</a>
+                        </td>
+                    }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

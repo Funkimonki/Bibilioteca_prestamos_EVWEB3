@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Bibilioteca_prestamos_EVWEB.Models.Libro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1 class="text-center">Lista de Libros</h1>
+@if (int.Parse(Session["tipo"].ToString()) == 1)
+{
+    <div class="mb-2 text-end">
+        <a href="/Libro/Create/" class="btn btn-primary">Crear Nuevo Libro</a>
+    </div>
+}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>ISBN</th>
+                <th>Editorial</th>
+                <th>Autor</th>
+                <th>Archivo</th>
+                @if (int.Parse(Session["tipo"].ToString()) == 1)
+                {
+                    <th></th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id_Libro</td>
+                    <td>@item.Titulo</td>
+                    <td>@item.ISBN</td>
+                    <td>@item.Editorial.Nombre</td>
+                    <td>@item.Autor.Nombre</td>
+                    <td>
+                        @if (item.archivo != null)
+                        {
+                            <img src="../Imagenes/@Url.Content(item.archivo)" width="150px" class="img-thumbnail" alt="@item.Titulo" />
+                        }
+                    </td>
+                    @if (int.Parse(Session["tipo"].ToString()) == 1)
+                    {
+                        <td>
+                            <a href="/Libro/Edit/@item.id_Libro" class="btn btn-warning">EDITAR</a>
+                            <a href="/Libro/Delete/@item.id_Libro" class="btn btn-danger">ELIMINAR</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

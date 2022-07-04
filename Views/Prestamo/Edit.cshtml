@@ -1,0 +1,36 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Prestamo
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="text-center">Editar Prestamo</h2>
+
+<form method="post" class="needs-validation" novalidate>
+
+    <input type="hidden" name="id_prestamo" value="@Model.id_prestamo" />
+    <div class="mb-3">
+        <label class="form-label">Fecha del Préstamo</label>
+        <input type="date" name="FechaPres" class="form-control" value="@Model.FechaPres" required />
+    </div>
+    <div class="mb-3">
+        <label for="Fecha">Fecha de devolución</label>
+        <input type="date" name="FechaDev" class="form-control" value="@Model.FechaDev" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Libro</label>
+        @Html.DropDownList("id_Libro", null, "--Seleccione--",
+       htmlAttributes: new { @class = "form-control", @required = true })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Autor</label>
+        @Html.DropDownList("id_Usuario", null, "--Seleccione--",
+       htmlAttributes: new { @class = "form-control", @required = true })
+    </div>
+
+
+    <div class="mb-3 text-end">
+        <a href="/Prestamo/Index" class="btn btn-outline-primary">VOLVER</a>
+        <input type="submit" value="GUARDAR" class="btn btn-success" />
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>*

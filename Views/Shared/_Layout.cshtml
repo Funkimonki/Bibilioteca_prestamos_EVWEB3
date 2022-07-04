@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Biblioteca - @ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/navbarcss.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    @if (Session["tipo"] == null)
+    {
+        Response.Redirect("/");
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background: linear-gradient(70deg, purple, blue 40%, purple)">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-auto" href="/Home/Home"><img src="~/Archives/Logobiblioteca.png" alt="Avatar Logo" style="width:60px;" class="rounded-pill"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">LISTAS</a>
+                            <ul class="dropdown-menu"
+                                style="background-color:mediumpurple" , aria-labelledby="navbarDarkDropdownMenuLink">
+
+                                <li><a class="dropdown-item" href="/Editorial/Index">Editorial</a></li>
+                                <li><a class="dropdown-item" href="/Autor/Index">Autor</a></li>
+                                <li><a class="dropdown-item" href="/Libro/Index">Libro</a></li>
+                                <li><a class="dropdown-item" href="/Ejemplar/Index">Ejemplar</a></li>
+                            </ul>
+
+                            @if (int.Parse(Session["tipo"].ToString()) == 1)
+                            {
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">LISTAS PRIVADAS</a>
+                                <ul class="dropdown-menu" style="background-color: rebeccapurple;" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/TipoUsuario/Index">Tipo de usuario</a></li>
+                                    <li><a class="dropdown-item" href="/Usuario/Index">Usuario</a></li>
+                                    <li><a class="dropdown-item" href="/Prestamo/Index">Prestamos</a></li>
+                                </ul>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">CREAR</a>
+                                <ul class="dropdown-menu" style="background-color: rebeccapurple;" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/TipoUsuario/Create">Tipo de usuario</a></li>
+                                    <li><a class="dropdown-item" href="/Usuario/Create">Usuario</a></li>
+                                    <li><a class="dropdown-item" href="/Editorial/Create">Editorial</a></li>
+                                    <li><a class="dropdown-item" href="/Autor/Create">Autor</a></li>
+                                    <li><a class="dropdown-item" href="/Libro/Create">Libro</a></li>
+                                    <li><a class="dropdown-item" href="/Ejemplar/Create">Ejemplar</a></li>
+                                    <li><a class="dropdown-item" href="/Prestamo/PrestamoC">Prestamos</a></li>
+                                </ul>
+                            }
+                    </ul>
+                    <span class="text-white">
+                        <!--Verifica que la variable session no sea nula-->
+                        @if (Session["nombre"] != null)
+                        {
+                            //verficia que la variable session no sea vacía
+                            if (Session["nombre"].ToString() != "")
+                            {
+                                //muestra el dato de la variable session
+                                <text>Bievenido,</text> @Session["nombre"]
+                            }
+                        }
+                        else
+                        {
+                            <!--Redirección a login-->
+                            Response.Redirect("/");
+                        }
+                    </span>
+                    <a href="/Home/Logout" class="nav-link text-white"> LogOut</a>
+                </div>
+            </div>
+        </nav>
+
+     <div>
+
+        @RenderBody()
+     </div>
+    }
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Ejemplar
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="text-center">ELIMINAR @Model.id_Ejemplar</h2>
+<div class="text-center">
+    <h2>¿Está seguro que desea eliminar el ejemplar?</h2>
+    <form method="post">
+        <a href="/Ejemplar/Index" class="btn btn-primary">VOLVER</a>
+        <button class="btn btn-danger">ELIMINAR</button>
+    </form>
+</div>

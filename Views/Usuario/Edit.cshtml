@@ -1,0 +1,47 @@
+﻿@model Bibilioteca_prestamos_EVWEB.Models.Usuario
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="text-center">Editar usuario: @Model.Nombre</h2>
+
+<form method="post" class="needs-validation" novalidate>
+
+    <input type="hidden" name="id_usuario" value="@Model.id_Usuario" />
+    <div class="mb-3">
+        <label class="form-label">Rut</label>
+        <input type="text" id="txt_rut" name="Rut" class="form-control" value="@Model.Rut" required oninput="checkRut(this)" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" value="@Model.Nombre" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="number" name="Telefono" class="form-control" value="@Model.Telefono" required autocomplete="off" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Dirección</label>
+        <input type="text" name="Direccion" class="form-control" value="@Model.Direccion" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo Usuario</label>
+        @Html.DropDownList("id_tipo", null, "Seleccione",
+       htmlAttributes: new { @class = "form-control", @required = true })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" value="@Model.email" class="form-control" required autocomplete="off" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" name="pass" value="@Model.pass" class="form-control" required autocomplete="off" />
+    </div>
+    <div class="mb-3 text-end">
+        <a href="/Usuario/Index" class="btn btn-outline-primary">VOLVER</a>
+        <input type="submit" value="GUARDAR" class="btn btn-success" />
+    </div>
+</form>
+<script src="~/Scripts/validacion.js"></script>
+<script src="~/Scripts/validacion rut.js"></script>
